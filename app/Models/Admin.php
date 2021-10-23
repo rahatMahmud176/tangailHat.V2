@@ -43,7 +43,16 @@ public static function logincheck()
         return $id;
     }
 }
-
+public static function superAdminCheck() 
+{
+    $id = Session::get('adminId');
+    $superAdmin = Admin::find($id);
+    if ($superAdmin->adminType==1) {
+        $id = Admin::where('adminType',1)->first();
+        return $id;
+    }
+    
+}
 
 
 

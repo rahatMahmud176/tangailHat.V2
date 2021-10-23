@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Session;
+use Alert;
 
 class LoginController extends Controller
 {
@@ -14,11 +15,18 @@ public function adminLoginInfoSubmit(Request $request)
     if ($admin) {
         if (password_verify($request->password, $admin->password)) {
             if ($admin->adminType==9) {
-                return redirect('/login')->with(['msg'=>'Please Wait For Approve.','msgType'=>'warning']); 
+                Alert::warning('Pending','Please Waite For Aproved');
+                return redirect('/login');
             }else{
-                Session::put('adminId',$admin->id);
-                Session::put('adminName',$admin->adminName);
-                return redirect('/dashbord')->with(['msg'=>'WellCome','msgType'=>'success']); 
+                if ($admin->adminType==8) {
+                     Alert::error('Blocked','You are Block this Site');
+                     return redirect('/login');
+                }else{
+                    Session::put('adminId',$admin->id);
+                    Session::put('adminName',$admin->adminName);
+                    return redirect('/dashbord')->with(['msg'=>'WellCome','msgType'=>'success']); 
+                }
+               
 
             }
         } else {

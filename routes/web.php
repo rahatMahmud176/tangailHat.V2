@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+ 
 
  
 Route::group(['middleware'=>'logOutMiddleware'], function(){
@@ -28,17 +29,81 @@ Route::post('admin/adminLoginInfoSubmit',[
 
 // DashbordRouterHere
 Route::group(['middleware'=>'loginCheckMiddleware'],function(){
-    Route::get('/dashbord',[
-        'uses'    =>'App\Http\Controllers\DashbordController@index',
-        'as'      =>'admin/dashbord', 
-    ]); 
-    Route::get('admin/adminLogout',[
-        'uses'    =>'App\Http\Controllers\LoginController@adminLogout',
-        'as'      =>'adminLogout'
-    ]);
-
+Route::get('/dashbord',[
+    'uses'    =>'App\Http\Controllers\DashbordController@index',
+    'as'      =>'dashbord', 
+]); 
+Route::get('admin/adminLogout',[
+    'uses'    =>'App\Http\Controllers\LoginController@adminLogout',
+    'as'      =>'adminLogout'
+]);
+Route::post('admin/upozillaSave',[
+    'uses'    =>'App\Http\Controllers\UpozillaController@upozillaSave',
+    'as'      =>'upozillaSave'
+]);
+Route::get('admin/manageUpozilla',[
+    'uses'    =>'App\Http\Controllers\UpozillaController@manageUpozilla',
+    'as'      =>'manageUpozilla'
+]);
+Route::get('admin/deleteUpozilla/{id}',[
+    'uses'    =>'App\Http\Controllers\UpozillaController@deleteUpozilla',
+    'as'      =>'deleteUpozilla'
+]);
+Route::get('admin/delete/upozilla/{id}',[
+    'uses'    =>'App\Http\Controllers\UpozillaController@upozillaDelete',
+    'as'      =>'upozillaDelete'
+]);
+Route::post('union/unionSave',[
+    'uses'    =>'App\Http\Controllers\unionController@unionSave',
+    'as'      =>'unionSave'
+]);
+Route::get('union/manageUnion',[
+    'uses'    =>'App\Http\Controllers\unionController@manageUnion',
+    'as'      =>'manageUnion'
+]);
+Route::get('union/deleteUnion/{id}',[
+    'uses'    =>'App\Http\Controllers\unionController@deleteUnionAlert',
+    'as'      =>'deleteUnion'
+]);
+Route::get('union/delete/{id}',[
+    'uses'    =>'App\Http\Controllers\unionController@unionDelete',
+    'as'      =>'unionDelete'
+]); 
 });//loginCheckMiddleware
 
+
+//SuperAdmin Router
+Route::group(['middleware'=>'superAdminMiddleware'],function(){ 
+Route::get('superAdmin/allUser',[
+    'uses'   =>'App\Http\Controllers\myUserController@allUser',
+    'as'     =>'allUser'
+]);
+Route::get('superAdmin/userRequest',[
+    'uses'   =>'App\Http\Controllers\myUserController@userRequest',
+    'as'     =>'userRequest'
+]);
+Route::get('superAdmin/userAproved/{id}',[
+    'uses'   =>'App\Http\Controllers\myUserController@userAproved',
+    'as'     =>'userAproved'
+]);
+Route::get('superAdmin/blockUser/{id}',[
+    'uses'   =>'App\Http\Controllers\myUserController@blockUser',
+    'as'     =>'blockUser'
+]);
+Route::get('superAdmin/blockUserFromAllUser/{id}',[
+    'uses'   =>'App\Http\Controllers\myUserController@blockUserFromAllUser',
+    'as'     =>'blockUserFromAllUser'
+]);
+Route::get('superAdmin/blockUserPage',[
+    'uses'   =>'App\Http\Controllers\myUserController@blockUserPage',
+    'as'     =>'blockUserPage'
+]);
+Route::get('superAdmin/unBlockUser/{id}',[
+    'uses'   =>'App\Http\Controllers\myUserController@unBlockUser',
+    'as'     =>'unBlockUser'
+]);
+
+});//SuperAdmin Middleware
 
 
 

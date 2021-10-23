@@ -54,7 +54,7 @@
 			 toastr.{{ Session::get('msgType') }}("{{ Session::get('msg') }}")
 		  </script>   
 		@endif
-
+		@include('sweetalert::alert')
 </body>
 
 </html>

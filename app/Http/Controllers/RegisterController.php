@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Session;
+use Alert;
 
 class RegisterController extends Controller
 {
@@ -34,9 +35,12 @@ public function adminRegisterInfoSubmit(Request $request)
     $this->adminRegisterInfoValidate($request);
       if($request->password==$request->rePassword){
             Admin::adminRegisterInfoSubmit($request);
-            return redirect('/login')->with(['msg'=>'Successfull. Wait For Aprove','msgType'=>'success']);
+            Alert::warning('Pending','Please Waite For Aproved');
+            return redirect('/login'); 
       }else{
-          return redirect('/register')->with(['msg'=>'Wrong Password!','msgType'=>'error']);
+        Alert::error('Wrong Password','Please input same password.');
+          return redirect('/register');
+           
       }
 }
 
