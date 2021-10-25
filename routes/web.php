@@ -68,7 +68,29 @@ Route::get('union/deleteUnion/{id}',[
 Route::get('union/delete/{id}',[
     'uses'    =>'App\Http\Controllers\unionController@unionDelete',
     'as'      =>'unionDelete'
+]);  
+Route::post('category/categorySave',[
+    'uses'    =>'App\Http\Controllers\categoryController@categorySave',
+    'as'      =>'categorySave'
+]);  
+Route::get('category/manageCategory',[
+    'uses'    =>'App\Http\Controllers\categoryController@manageCategory',
+    'as'      =>'manageCategory'
+]);   
+Route::get('category/deleteCategoryAlert/{id}',[
+    'uses'    =>'App\Http\Controllers\categoryController@deleteCategoryAlert',
+    'as'      =>'deleteCategoryAlert'
+]);    
+Route::get('category/delete/{id}',[
+    'uses'    =>'App\Http\Controllers\categoryController@deleteCategory',
+    'as'      =>'delete/category'
 ]); 
+ 
+
+
+
+
+
 });//loginCheckMiddleware
 
 
@@ -109,7 +131,8 @@ Route::get('superAdmin/unBlockUser/{id}',[
 
 
 
-// FrontEnd Router Here
-Route::get('/', function () {
-    return view('welcome');
-});
+//FrontEnd Router Here
+Route::get('/',[
+    'uses'  => 'App\Http\Controllers\MianController@index',
+    'as'    =>'/home'
+]);

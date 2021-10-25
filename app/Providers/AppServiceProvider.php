@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-
+use App\Models\Category;
 use View;
 use App\Models\Union;
 use App\Models\Upozilla;
@@ -29,8 +29,9 @@ class AppServiceProvider extends ServiceProvider
     {
          View::composer('*',function($view){
              $view->with([
-                 'upozillas'=>Upozilla::orderBy('id','DESC')->get(),
-                  'unions'  =>Union::orderBy('id','DESC')->get(),
+                 'upozillas'    =>Upozilla::orderBy('id','DESC')->get(),
+                  'unions'      =>Union::orderBy('id','DESC')->get(),
+                  'categories'  =>Category::orderBy('id','DESC')->get(),
             ]);
          });
     }

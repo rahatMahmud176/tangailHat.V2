@@ -13,6 +13,21 @@
                 </a>
             </li>
             <li class="sidebar-header">
+                Importent's
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="#" data-bs-toggle="modal" data-bs-target="#addCategory">
+                    <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Category Add</span>
+                </a>
+            </li>
+             <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('manageCategory') }}">
+                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Category Manage</span>
+                </a>
+            </li>
+
+            <li class="sidebar-header">
                 Location's
             </li> 
             <li class="sidebar-item">

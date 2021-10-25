@@ -47,7 +47,13 @@
 
 @include('backEnd.includes.upozillaModal')
 @include('backEnd.includes.unionModal')
+@include('backEnd.includes.categoryModal')
 
+@if ($errors->any())
+	<script>
+		alert('Please Fill up All Rauire field');
+	</script>
+@endif
 
 
 

@@ -31,16 +31,21 @@ public static function adminRegisterInfoSubmit($request)
      }else{
       Session::put('adminId',$admin->id);
       Session::put('adminName',$admin->adminName);
-     }
-    
-
+     } 
 }
 
 public static function logincheck()
 {
     if (Session::get('adminId')) {
         $id = Session::get('adminId');
-        return $id;
+        $admin = Admin::find($id);
+        if($admin->adminType==8){
+            Session::forget('adminId');
+            Session::forget('aminName');
+        }else{
+            return $id;
+        }
+        
     }
 }
 public static function superAdminCheck() 
