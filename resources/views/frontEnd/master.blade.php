@@ -1,72 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {{-- <title>ClassiAlly - Classified Ads Website Template</title> --}}
-    <title> @yield('title') </title>
+<head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/css/bootstrap.min.css">
-    <!-- Icon -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/fonts/line-icons.css">
-    <!-- Slicknav -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/css/slicknav.css">
+    <meta charset="utf-8" />
+    <title>@yield('title') | Tangail Hat - Buy Sell Excchange</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('/') }}frontEnd/assets/images/favicon.ico">
 
-    <!-- Nivo Lightbox -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/css/nivo-lightbox.css" >
-    <!-- Animate -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/css/animate.css">
-    <!-- Owl carousel -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/css/owl.carousel.css">
-    <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/css/main.css">
-    <!-- Responsive Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontEnd') }}/assets/css/responsive.css">
+    @include('frontEnd.includes.style')
 
-  </head>
-  <body>
+</head>
 
-    <!-- Header Area wrapper Starts -->
-    <header id="header-wrap">
-      <!-- Navbar Start -->
-      @include('frontEnd.includes.navBar')
-      <!-- Navbar End -->
-      
-      @yield('mainContent')
-    <!-- Subscribe Section End -->
+<body data-spy="scroll" data-target="#topnav-menu" data-offset="60">
+ 
+    @include('frontEnd.includes.nav')
 
-    <!-- Footer Section Start -->
-      @include('frontEnd.includes.footer')
-    <!-- Footer Section End --> 
+   @yield('mainContent')
 
-    <!-- Go to Top Link -->
-    <a href="#" class="back-to-top">
-    	<i class="lni-chevron-up"></i>
-    </a>
 
-    <!-- Preloader -->
-    <div id="preloader">
-      <div class="loader" id="loader-1"></div>
-    </div>
-    <!-- End Preloader -->
+    <!-- Footer start -->
+    @include('frontEnd.includes.footer')
+    <!-- Footer end -->
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ asset('frontEnd') }}/assets/js/jquery-min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/popper.min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/bootstrap.min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/jquery.counterup.min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/waypoints.min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/wow.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/owl.carousel.min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/nivo-lightbox.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/jquery.slicknav.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/main.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/form-validator.min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/contact-form-script.min.js"></script>
-    <script src="{{ asset('frontEnd') }}/assets/js/summernote.js"></script>
-      
-  </body>
+    <!-- JAVASCRIPT -->
+    @include('frontEnd.includes.script')
+
+</body>
+
+<!-- Mirrored from themesbrand.com/skote/layouts/vertical/crypto-ico-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Sep 2020 15:07:57 GMT -->
+
 </html>

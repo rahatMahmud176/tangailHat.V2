@@ -1,0 +1,12 @@
+@font-face {
+    font-family: solaimanlipi;
+    src: url(frontEnd/assets/font/SolaimanLipi_22-02-2012.ttf);
+}
+
+.hero-section .hero-title {
+    font-family: solaimanlipi !important;
+   
+}
+.solaimanlipi{
+    font-family: solaimanlipi !important; 
+}

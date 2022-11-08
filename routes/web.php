@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
  
-
+//test
  
 Route::group(['middleware'=>'logOutMiddleware'], function(){
    // LoginRegisterRouterHere
@@ -136,3 +136,13 @@ Route::get('/',[
     'uses'  => 'App\Http\Controllers\MianController@index',
     'as'    =>'/home'
 ]);
+Route::get('visitor/Profile',[
+    'uses'  => 'App\Http\Controllers\VisitorController@profile',
+    'as'    =>'visitor-profile'
+]);
+Route::get('visitor/my-ads',[
+    'uses'  => 'App\Http\Controllers\VisitorController@myAds',
+    'as'    =>'my-ads'
+]); 
+ 
+Route::resource('ads','App\Http\Controllers\AdsController');
