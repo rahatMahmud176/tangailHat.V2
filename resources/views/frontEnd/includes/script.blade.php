@@ -45,6 +45,13 @@
 
 {{-- Datatables  --}}
 
+<!-- twitter-bootstrap-wizard js -->
+<script src="{{ asset('/') }}frontEnd/assets/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="{{ asset('/') }}frontEnd/assets/libs/twitter-bootstrap-wizard/prettify.js"></script>
+
+<!-- form wizard init -->
+<script src="{{ asset('/') }}frontEnd/assets/js/pages/form-wizard.init.js"></script>
+
 {{-- profile-styles --}}
 <!-- JAVASCRIPTS -->
 <script src="{{ asset('/') }}frontEnd/profile-styles/plugins/jquery/jquery.min.js"></script>
