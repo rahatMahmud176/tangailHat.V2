@@ -133,16 +133,7 @@ Route::get('superAdmin/unBlockUser/{id}',[
 
 //FrontEnd Router Here
 Route::get('/',[
-    'uses'  => 'App\Http\Controllers\MianController@index',
-    'as'    =>'/home'
+    'uses'  => 'App\Http\Controllers\HomeController@index',
+    'as'    =>'/'
 ]);
-Route::get('visitor/Profile',[
-    'uses'  => 'App\Http\Controllers\VisitorController@profile',
-    'as'    =>'visitor-profile'
-]);
-Route::get('visitor/my-ads',[
-    'uses'  => 'App\Http\Controllers\VisitorController@myAds',
-    'as'    =>'my-ads'
-]); 
  
-Route::resource('ads','App\Http\Controllers\AdsController');
