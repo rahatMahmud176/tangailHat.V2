@@ -1,18 +1,16 @@
 @extends('backEnd.master')
 @section('title')
-    Union Manage Page
+    Manage District
 @endsection
-
 @section('mainContent')
 <div class="card">
     <div class="card-body">
-        <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addUnion">Add Union</a>
+        <a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addDistrict">Add district</a>
         <table class="table table-striped table-success " id="dataTable">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Union</th>
-                <th scope="col">Upozilla</th>
+                <th scope="col">district</th>
                 <th scope="col">Action</th> 
               </tr>
             </thead>
@@ -20,13 +18,12 @@
                 @php
                     $i = 1;
                 @endphp
-                @foreach ($unions as $item)
+                @foreach ($districts as $item)
                 <tr>
                     <th scope="row">{{ $i++ }}</th>
-                    <td>{{ $item->name }}</td> 
-                    <td>{{ $item->upozilla->name }}</td> 
-                    <td> 
-                        <a href="{{ route('deleteUnion',['id'=>$item->id]) }}"   ><i class="align-middle text-danger" data-feather="trash-2"></i></a> 
+                    <td>{{ $item->name }}</td>
+                    <td>
+                        <a href=""   ><i class="align-middle text-danger" data-feather="trash-2"></i></a> 
                     </td> 
                 </tr>
                 @endforeach 

@@ -8,19 +8,14 @@
 		</div>
 		<div class="modal-body">
 		  {{ Form::open(['route'=>'unionSave','method'=>'POST']) }}
-		  <div class="mb-3 row">
-			<label for="staticEmail"  class="col-sm-2 col-form-label">Zilla</label>
-			<div class="col-sm-10">
-			  <input type="text" readonly class="form-control-plaintext text-success" id="staticEmail" value="TANGAIL">
-			</div>
-		  </div>	
+		  
             <div class="mb-3 row">
 			<label for="staticEmail"  class="col-sm-2 col-form-label">Upozilla</label>
 			<div class="col-sm-10">
-			   <select name="upozillaId" class="chosen  form-control" class="container-fluid" id="">
+			   <select name="upozilla_id" class="chosen  form-control" class="container-fluid" id="">
                     <option value="">Select Upozilla</option> 
                         @foreach ($upozillas as $item)
-                        <option value="{{ $item->id }}">{{ $item->upozilla }}</option>
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach  
                </select>
 			</div>
@@ -28,7 +23,7 @@
 		  <div class="mb-3 row">
 			<label for="inputPassword" class="col-sm-2 col-form-label">Union</label>
 			<div class="col-sm-10">
-			  <input type="text" class="form-control" name="union">
+			  <input type="text" class="form-control" name="name">
 			</div>
 		  </div>
 		 

@@ -14,11 +14,11 @@
                         <input type="password" placeholder="Password" />
                         <div class="checkbox checkbox-primary">
                             <input id="checkbox1" type="checkbox">
-                            <label for="checkbox1">Remember Me</label>
+                            <label for="checkbox1">Remember Me</label>  
                         </div>
                         <button class="default-big-btn" type="submit" value="Login">Login</button>
                         <button class="default-big-btn form-cancel" type="submit" value="">Cancel</button>
-                        <label class="lost-password"><a href="#">Lost your password?</a></label>
+                        <label class="lost-password"><a href="#">Lost your password?</a></label>   
                     </form>
                 </div>
             </div>

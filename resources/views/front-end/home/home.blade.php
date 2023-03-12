@@ -6,6 +6,8 @@
 
 
  <section class="bg-accent-shadow-body d-sm-none d-block pb-3">
+    <marquee> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sint possimus eveniet a corrupti repellendus magni amet nobis voluptatibus illo quas nihil doloremque, velit enim aspernatur ipsa repellat maxime expedita. </marquee>
+
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -38,55 +40,9 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
- </section>
+ </section> 
 
-
-                        
-
-
-
-
-    <!-- Search Area Start Here -->
-    <section class="search-layout1 bg-body full-width-border-bottom fixed-menu-mt">
-        <div class="container">
-            <form id="cp-search-form">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <div class="form-group search-input-area input-icon-location">
-                            <select id="location" class="select2">
-                                <option class="first" value="0">Select Location</option>
-                                <option value="1">Paypal</option>
-                                <option value="2">Master Card</option>
-                                <option value="3">Visa Card</option>
-                                <option value="4">Scrill</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <div class="form-group search-input-area input-icon-category">
-                            <select id="categories" class="select2">
-                                <option class="first" value="0">Select Categories</option>
-                                <option value="1">Paypal</option>
-                                <option value="2">Master Card</option>
-                                <option value="3">Visa Card</option>
-                                <option value="4">Scrill</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <div class="form-group search-input-area input-icon-keywords">
-                            <input placeholder="Enter Keywords here ..." value="" name="key-word" type="text">
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-right text-left-mb">
-                        <a href="#" class="cp-search-btn">
-                            <i class="fa fa-search" aria-hidden="true"></i>Search
-                        </a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
+ 
     <!-- Search Area End Here -->
     <!-- Category Grid View Start Here -->
     <section class="s-space-bottom-full bg-accent-shadow-body">
@@ -103,9 +59,11 @@
 
                 <div class="order-xl-2 order-lg-2 col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="gradient-wrapper item-mb">
+                    
+                        <marquee class="d-none d-sm-block"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sint possimus eveniet a corrupti repellendus magni amet nobis voluptatibus illo quas nihil doloremque, velit enim aspernatur ipsa repellat maxime expedita. </marquee>
                         
                         <div class="row mb-5 d-none d-sm-block">
-                            <div class="col-12 p-sm-5">
+                            <div class="col-12 p-4">
                                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                     <ol class="carousel-indicators">
                                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -141,6 +99,7 @@
                             
                             </div>
                         </div>
+
 
                         <div class="gradient-title"> 
                             <div class="row">  

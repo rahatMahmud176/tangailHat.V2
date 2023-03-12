@@ -13,6 +13,11 @@
                 <div class="top-bar-right">
                     <ul>
                         <li>
+                            <a href="{{ route('customer-register') }}"   class="login-btn">
+                                <i class="fa fa-lock" aria-hidden="true"></i>Register
+                            </a>
+                        </li>
+                        <li>
                             <button type="button" class="login-btn" data-toggle="modal" data-target="#myModal">
                                 <i class="fa fa-lock" aria-hidden="true"></i>Login
                             </button>

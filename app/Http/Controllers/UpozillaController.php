@@ -11,11 +11,12 @@ class UpozillaController extends Controller
 public function upozillaSave(Request $request)
 {
      $this->validate($request,[
-        'upozilla'      => 'required | unique:App\Models\Upozilla,upozilla',
+        'name'         => 'required | unique:App\Models\Upozilla,name',
+        'district_id'  => 'required',
      ]);
      Upozilla::upozillaSave($request);
-     Alert::success('Success', 'Successfully Add an upozilla.');
-     return redirect('admin/manageUpozilla');
+     Alert::toast('Successfully Saved.','success');
+     return redirect()->back();
     // ->with(['msg'=>'Success','msgType'=>'success']);
      
 

@@ -60,7 +60,7 @@
                                                         <ul class="rt-mega-items">
                                                             <li><a href="my-account.html">My Account</a></li>
                                                             <li><a href="login.html">Login</a></li>
-                                                            <li><a href="post-ad.html">Post Ad</a></li>
+                                                            <li><a href="#">Post Ad</a></li>
                                                             <li><a href="report-abuse.html" data-toggle="modal" data-target="#report_abuse">Report Abuse</a></li>
                                                             <li><a href="faq.html">Faq</a></li>
                                                         </ul>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-3 text-right">
-                        <a href="post-ad.html" class="cp-default-btn">Post Your Ad</a>
+                        <a href="{{ route('ads.index') }}" class="cp-default-btn">Post Your Ad</a>
                     </div>
                 </div>
             </div>

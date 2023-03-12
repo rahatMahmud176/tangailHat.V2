@@ -45,6 +45,7 @@
   
  
 
+@include('backEnd.includes.district-modal')
 @include('backEnd.includes.upozillaModal')
 @include('backEnd.includes.unionModal')
 @include('backEnd.includes.categoryModal')

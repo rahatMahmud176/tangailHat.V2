@@ -10,12 +10,25 @@ class Upozilla extends Model
     use HasFactory;
     protected $fillable =['upozilla'];
 
+public static $item;
+
+
 public static function upozillaSave($request)
 {
-     $item = new Upozilla();
-     $item->upozilla      = $request->upozilla;
-     $item->save();
+    self::$item = new Upozilla();
+    self::$item->district_id      = $request->district_id;
+    self::$item->name             = $request->name;
+    self::$item->save();
 }
+
+
+
+public function district()
+{
+    return $this->belongsTo('App\Models\District','district_id');
+}
+
+
 
 
 

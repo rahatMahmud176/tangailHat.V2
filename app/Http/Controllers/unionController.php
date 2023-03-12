@@ -12,21 +12,18 @@ class unionController extends Controller
 public function unionSave(Request $request)
 {
    $this->validate($request,[
-       'upozillaId'     => 'required',
-       'union'          => 'required',
+       'upozilla_id'     => 'required',
+       'name'          => 'required',
    ]);
    Union::unionSave($request);
-   Alert::success('Success','You have been successfully add the union.');
-   return redirect('union/manageUnion'); 
+   Alert::toast('Success to save!','success');
+   return redirect()->back(); 
 }
 
 public function manageUnion()
 {
     return view('backEnd.union.manageUnion',[
-        'myUnions'  => DB::table('unions')
-                    ->join('upozillas','unions.upozillaId','=','upozillas.id')
-                    ->select('unions.*','upozillas.upozilla')
-                    ->get(),
+        'unions'  => Union::all(),
     ]);
 }
 

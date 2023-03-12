@@ -9,15 +9,20 @@
 		<div class="modal-body">
 		  {{ Form::open(['route'=>'upozillaSave','method'=>'POST']) }}
 		  <div class="mb-3 row">
-			<label for="staticEmail"  class="col-sm-2 col-form-label">Zilla</label>
+			<label for="staticEmail"  class="col-sm-2 col-form-label">District</label>
 			<div class="col-sm-10">
-			  <input type="text" readonly class="form-control-plaintext text-success" id="staticEmail" value="TANGAIL">
+			   <select name="district_id" class="chosen  form-control" class="container-fluid" id="">
+                    <option value="">Select District</option> 
+                        @foreach ($districts as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach  
+               </select>
 			</div>
 		  </div>
 		  <div class="mb-3 row">
 			<label for="inputPassword" class="col-sm-2 col-form-label">Upozilla</label>
 			<div class="col-sm-10">
-			  <input type="text" class="form-control" name="upozilla">
+			  <input type="text" class="form-control" name="name">
 			</div>
 		  </div>
 		 

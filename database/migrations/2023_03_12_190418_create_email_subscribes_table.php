@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUpozillasTable extends Migration
+class CreateEmailSubscribesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateUpozillasTable extends Migration
      */
     public function up()
     {
-        Schema::create('upozillas', function (Blueprint $table) {
+        Schema::create('email_subscribes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('district_id');
-            $table->string('name');
-            $table->integer('search_count')->default(0);
-            $table->tinyInteger('status')->default(1);
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateUpozillasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('upozillas');
+        Schema::dropIfExists('email_subscribes');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
  
 Route::group(['middleware'=>'logOutMiddleware'], function(){
    // LoginRegisterRouterHere
-Route::get('/register',[
+Route::get('admin-register',[
     'uses'    =>'App\Http\Controllers\RegisterController@registerPage',
     'as'      =>'admin/register'
 ]); 
@@ -36,6 +36,14 @@ Route::get('/dashbord',[
 Route::get('admin/adminLogout',[
     'uses'    =>'App\Http\Controllers\LoginController@adminLogout',
     'as'      =>'adminLogout'
+]);
+Route::post('new-district',[
+    'uses'    =>'App\Http\Controllers\DistrictController@new',
+    'as'      =>'district-new'
+]);
+Route::get('manage-district',[
+    'uses'    =>'App\Http\Controllers\DistrictController@manage',
+    'as'      =>'manage-district'
 ]);
 Route::post('admin/upozillaSave',[
     'uses'    =>'App\Http\Controllers\UpozillaController@upozillaSave',
@@ -136,4 +144,34 @@ Route::get('/',[
     'uses'  => 'App\Http\Controllers\HomeController@index',
     'as'    =>'/'
 ]);
+ Route::get('post-an-ad',[
+    'uses'  => 'App\Http\Controllers\HomeController@index',
+    'as'    =>'visitor-post-an-ad'
+]); 
+Route::resource('ads',App\Http\Controllers\AdsController::class);
  
+
+
+
+
+
+Route::get('register',[
+    'uses'  => 'App\Http\Controllers\CustomerController@registerPage',
+    'as'    =>'customer-register'
+]);
+Route::get('take-upozilla-for-district',[
+    'uses'  => 'App\Http\Controllers\CustomerController@upozillasForDistrictAjax',
+    'as'    =>'take-upozilla-for-district'
+]);
+Route::get('take-union-for-upozilla',[
+    'uses'  => 'App\Http\Controllers\CustomerController@unionForUpozillaAjax',
+    'as'    =>'take-union-for-upozilla'
+]);
+Route::post('register-customer',[
+    'uses'  => 'App\Http\Controllers\CustomerController@newCustomer',
+    'as'    =>'customer-register'
+]);
+Route::get('email-verify/{token}',[
+    'uses'  => 'App\Http\Controllers\CustomerController@emailVerify',
+    'as'    =>'email-verify'
+]);

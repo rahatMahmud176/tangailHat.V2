@@ -15,8 +15,10 @@ class CreateUnionsTable extends Migration
     {
         Schema::create('unions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('upozillaId');
-            $table->string('union');
+            $table->integer('upozilla_id');
+            $table->string('name');
+            $table->integer('search_count')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

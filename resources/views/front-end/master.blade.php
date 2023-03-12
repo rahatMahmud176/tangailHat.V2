@@ -17,6 +17,7 @@
         <!-- Header Area Start Here -->
         @include('front-end.includes.header')
         <!-- Header Area End Here -->
+        @include('front-end.includes.search')
         @yield('content')
         <!-- Footer Area Start Here -->
         @include('front-end.includes.footer')

@@ -11,6 +11,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Upozilla</th>
+                <th scope="col">District</th>
                 <th scope="col">Action</th> 
               </tr>
             </thead>
@@ -21,7 +22,8 @@
                 @foreach ($upozillas as $item)
                 <tr>
                     <th scope="row">{{ $i++ }}</th>
-                    <td>{{ $item->upozilla }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->district->name }}</td>
                     <td>
                         <a href="{{ route('deleteUpozilla',['id'=>$item->id]) }}"   ><i class="align-middle text-danger" data-feather="trash-2"></i></a> 
                     </td> 

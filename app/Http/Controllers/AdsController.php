@@ -13,7 +13,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        return view('frontEnd.pages.ads.ads-form');
+        return view('front-end.ads.post-an-ad');
     }
 
     /**

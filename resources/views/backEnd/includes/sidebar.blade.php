@@ -31,6 +31,16 @@
                 Location's
             </li> 
             <li class="sidebar-item">
+                <a class="sidebar-link" href="#" data-bs-toggle="modal" data-bs-target="#addDistrict">
+                    <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Add District </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('manage-district') }}">
+                    <i class="align-middle" data-feather="navigation"></i> <span class="align-middle">Manage District </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
                 <a class="sidebar-link" href="#" data-bs-toggle="modal" data-bs-target="#addUpozilla">
                     <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Add Upozilla </span>
                 </a>

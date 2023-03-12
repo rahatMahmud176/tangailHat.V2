@@ -26,3 +26,45 @@
     <script src="{{ asset('front-end') }}/js/validator.min.js"></script>
     <!-- Custom Js -->
     <script src="{{ asset('front-end') }}/js/main.js "></script>
+    
+    @include('sweetalert::alert') 
+
+
+    <script>
+        $(document).on('change','#district', function(){
+            
+            var id = $(this).val();
+            // alert (id);
+            $.ajax({
+                type: "GET",
+                url : "{{ url('take-upozilla-for-district') }}",
+                data: {id:id},
+                // dataType: "json",
+                success: function(res){
+                    //  console.log(res);
+                    $('#upozillas').empty();
+                    $('#upozillas').html(res);
+                }
+
+            });
+        })
+    </script>
+    <script>
+        $(document).on('change','#upozillas', function(){
+            
+            var id = $(this).val();
+            // alert (id);
+            $.ajax({
+                type: "GET",
+                url : "{{ url('take-union-for-upozilla') }}",
+                data: {id:id},
+                // dataType: "json",
+                success: function(res){
+                    //  console.log(res);
+                    $('#union').empty();
+                    $('#union').html(res);
+                }
+
+            });
+        })
+    </script>
