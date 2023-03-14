@@ -9,6 +9,7 @@ use App\Models\Union;
 use App\Models\Upozilla;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Session;
 
 class CustomerController extends Controller
 {
@@ -19,6 +20,7 @@ public $ids;
 public $upozillas; 
 public $unions; 
 public $exist_email; 
+public $newEmail; 
 
 
 public function registerPage()
@@ -70,8 +72,8 @@ public function newCustomer(Request $request)
     }else{
         EmailSubscribe::new($request->email);
     } 
-    $this->infoValidation($request);
-    Customer::new($request);
+    $this->infoValidation($request); 
+    Customer::new($request); 
     Alert::toast('Check you Email, We send a Confirmation Mail','success');
     return redirect()->back();     
 }
@@ -80,11 +82,25 @@ public function emailVerify($token)
      $this->customer = Customer::where('token',$token)->first();
      $this->customer->email_varify_status = 1;
      $this->customer->save();
-     Alert::toast('Email Verify Successfly Now Login !','success');
-     return redirect('/');
+    Session::put('customerId',$this->customer->id);
+    Session::put('customerName',$this->customer->name);
+
+     Alert::toast('Email Verify Success!','success');
+     return redirect('post-an-ad');
 }
 
-
+public function existEmailCheck()
+{
+    $this->newEmail = $_GET['email'];
+    // return response()->json($this->newEmail); 
+    $this->exist_email = Customer::where('email',$this->newEmail)->first();
+    if ($this->exist_email) {
+        return response()->json('unavailable');
+    } else {
+         return response()->json('available');
+    }
+    
+}
 
 
 

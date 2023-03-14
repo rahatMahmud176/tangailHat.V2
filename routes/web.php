@@ -144,6 +144,10 @@ Route::get('/',[
     'uses'  => 'App\Http\Controllers\HomeController@index',
     'as'    =>'/'
 ]);
+Route::get('/demo',[
+    'uses'  => 'App\Http\Controllers\HomeController@demo',
+    'as'    =>'demo'
+]);
  Route::get('post-an-ad',[
     'uses'  => 'App\Http\Controllers\HomeController@index',
     'as'    =>'visitor-post-an-ad'
@@ -167,9 +171,13 @@ Route::get('take-union-for-upozilla',[
     'uses'  => 'App\Http\Controllers\CustomerController@unionForUpozillaAjax',
     'as'    =>'take-union-for-upozilla'
 ]);
+Route::get('exist-email-check',[
+    'uses'  => 'App\Http\Controllers\CustomerController@existEmailCheck',
+    'as'    =>'exist-email-check'
+]);
 Route::post('register-customer',[
     'uses'  => 'App\Http\Controllers\CustomerController@newCustomer',
-    'as'    =>'customer-register'
+    'as'    =>'submit-register'
 ]);
 Route::get('email-verify/{token}',[
     'uses'  => 'App\Http\Controllers\CustomerController@emailVerify',

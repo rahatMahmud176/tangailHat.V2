@@ -68,3 +68,25 @@
             });
         })
     </script>
+    <script>
+        $(document).on('keyup','.registerEmail', function(){
+            var val = $(this).val();
+            $.ajax({
+                type: "GET",
+                url : "{{ url('exist-email-check') }}",
+                data: {email:val},
+                dataType: "json",
+                success: function(res){
+                    if (res=='unavailable') {
+                        $('.email_exist').empty();
+                        $('.email_exist').append('Already taken this mail'); 
+                         $("#register_submit_btn").prop('disabled', true);
+                    }else{
+                        $('.email_exist').empty();
+                        document.getElementById("register_submit_btn").disabled = false;
+                    }
+                }
+
+            });
+        });
+    </script>

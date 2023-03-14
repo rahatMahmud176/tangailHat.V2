@@ -45,22 +45,14 @@
  
     <!-- Search Area End Here -->
     <!-- Category Grid View Start Here -->
-    <section class="s-space-bottom-full bg-accent-shadow-body">
-        <div class="container">
-            <div class="breadcrumbs-area">
-                <ul>
-                    <li><a href="#">Home</a> -</li>
-                    <li class="active">All ads</li>
-                </ul>
-            </div>
-        </div>
+    <section class="s-space-bottom-full bg-accent-shadow-body"> 
         <div class="container"> 
             <div class="row">  
 
                 <div class="order-xl-2 order-lg-2 col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="gradient-wrapper item-mb">
                     
-                        <marquee class="d-none d-sm-block"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sint possimus eveniet a corrupti repellendus magni amet nobis voluptatibus illo quas nihil doloremque, velit enim aspernatur ipsa repellat maxime expedita. </marquee>
+                        <marquee class="d-none d-sm-block p-3 text-light text-bold" style="background: #FF4F00"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sint possimus eveniet a corrupti repellendus magni amet nobis voluptatibus illo quas nihil doloremque, velit enim aspernatur ipsa repellat maxime expedita. </marquee>
                         
                         <div class="row mb-5 d-none d-sm-block">
                             <div class="col-12 p-4">

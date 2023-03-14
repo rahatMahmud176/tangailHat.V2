@@ -21,7 +21,7 @@
                     </div>
                     <div class="input-layout1 gradient-padding post-ad-page">
                         {{-- <form id="post-add-form"> --}}
-                        {{ Form::open(['route'=>'customer-register','id'=>'post-add-form']) }}  
+                        {{ Form::open(['route'=>'submit-register','id'=>'post-add-form']) }}  
                             <div class="border-bottom-2 mb-50 pb-30">
                                 
 @if ($errors->any())
@@ -49,7 +49,8 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input required maxlength="120" name="email" value="{{ old('email') }}" type="email" id="seller-mail" class="form-control" placeholder="Enter Your E-mail Address">
+                                            <small class="text-danger email_exist"></small>
+                                            <input required maxlength="120" name="email" value="{{ old('email') }}" type="email" id="seller-mail" class="form-control registerEmail" placeholder="Enter Your E-mail Address">
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +134,7 @@
                             </div>
                             
                             <div class="form-group mt-20">
-                                <button type="submit" class="cp-default-btn-sm">SignUp Now!</button>
+                                <button type="submit" class="cp-default-btn-sm" id="register_submit_btn">SignUp Now!</button>
                             </div>
                         {{ Form::close() }} 
                     </div>

@@ -1,13 +1,13 @@
 <header>
     <div id="header-three" class="header-style1 header-fixed">
        @include('front-end.includes.header-top')
-        <div class="main-menu-area bg-primary" id="sticker">
+        <div class="main-menu-area bg-primary site-bg" id="sticker">
             <div class="container">
                 <div class="row no-gutters d-flex align-items-center">
                     <div class="col-lg-2 col-md-2 col-sm-3">
                         <div class="logo-area">
-                            <a href="index.html" class="img-fluid">
-                                <img src="{{ asset('front-end') }}/img/logo.png" alt="logo">
+                            <a href="{{ route('/') }}" class="img-fluid">
+                                <img src="{{ asset('front-end') }}/custom-image/Logo.webp" alt="logo">
                             </a>
                         </div>
                     </div>

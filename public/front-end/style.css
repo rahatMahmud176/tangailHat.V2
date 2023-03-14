@@ -6205,3 +6205,13 @@ ul.sidebar-ads-from-user li .price {
     padding: 12px 5px;
   }
 }
+
+.site-bg{
+  background: #FF4F00 !important;
+}
+.site-color{
+  color: #FF4F00 !important;
+}
+ul.sidebar-category-list li:hover {
+  background: #FF4F00 !important;
+}
