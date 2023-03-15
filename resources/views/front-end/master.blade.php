@@ -29,7 +29,9 @@
     <!-- Report Abuse Modal Start-->
     @include('front-end.includes.report-modal')
     <!-- Report Abuse Modal End-->
+
     @include('front-end.includes.scripts')
+
 </body>
 
 </html>

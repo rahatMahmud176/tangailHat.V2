@@ -26,13 +26,13 @@
     <script src="{{ asset('front-end') }}/js/validator.min.js"></script>
     <!-- Custom Js -->
     <script src="{{ asset('front-end') }}/js/main.js "></script>
-    
-    @include('sweetalert::alert') 
+
+    @include('sweetalert::alert')
 
 
     <script>
         $(document).on('change','#district', function(){
-            
+
             var id = $(this).val();
             // alert (id);
             $.ajax({
@@ -51,7 +51,7 @@
     </script>
     <script>
         $(document).on('change','#upozillas', function(){
-            
+
             var id = $(this).val();
             // alert (id);
             $.ajax({
@@ -79,7 +79,7 @@
                 success: function(res){
                     if (res=='unavailable') {
                         $('.email_exist').empty();
-                        $('.email_exist').append('Already taken this mail'); 
+                        $('.email_exist').append('Already taken this mail');
                          $("#register_submit_btn").prop('disabled', true);
                     }else{
                         $('.email_exist').empty();

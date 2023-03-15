@@ -1,19 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
- 
+
 //test
- 
+
 Route::group(['middleware'=>'logOutMiddleware'], function(){
    // LoginRegisterRouterHere
 Route::get('admin-register',[
     'uses'    =>'App\Http\Controllers\RegisterController@registerPage',
     'as'      =>'admin/register'
-]); 
+]);
 Route::post('admin/adminRegisterInfoSubmit',[
     'uses'    =>'App\Http\Controllers\RegisterController@adminRegisterInfoSubmit',
     'as'      =>'adminRegisterInfoSubmit'
-]); 
+]);
 Route::get('/login',[
     'uses'    =>'App\Http\Controllers\RegisterController@loginPage',
     'as'      =>'admin/login'
@@ -21,18 +21,18 @@ Route::get('/login',[
 Route::post('admin/adminLoginInfoSubmit',[
     'uses'    =>'App\Http\Controllers\LoginController@adminLoginInfoSubmit',
     'as'      =>'adminLoginInfoSubmit'
-]); 
+]);
 
 });//logOutMiddleware
- 
- 
+
+
 
 // DashbordRouterHere
 Route::group(['middleware'=>'loginCheckMiddleware'],function(){
 Route::get('/dashbord',[
     'uses'    =>'App\Http\Controllers\DashbordController@index',
-    'as'      =>'dashbord', 
-]); 
+    'as'      =>'dashbord',
+]);
 Route::get('admin/adminLogout',[
     'uses'    =>'App\Http\Controllers\LoginController@adminLogout',
     'as'      =>'adminLogout'
@@ -76,24 +76,24 @@ Route::get('union/deleteUnion/{id}',[
 Route::get('union/delete/{id}',[
     'uses'    =>'App\Http\Controllers\unionController@unionDelete',
     'as'      =>'unionDelete'
-]);  
+]);
 Route::post('category/categorySave',[
     'uses'    =>'App\Http\Controllers\categoryController@categorySave',
     'as'      =>'categorySave'
-]);  
+]);
 Route::get('category/manageCategory',[
     'uses'    =>'App\Http\Controllers\categoryController@manageCategory',
     'as'      =>'manageCategory'
-]);   
+]);
 Route::get('category/deleteCategoryAlert/{id}',[
     'uses'    =>'App\Http\Controllers\categoryController@deleteCategoryAlert',
     'as'      =>'deleteCategoryAlert'
-]);    
+]);
 Route::get('category/delete/{id}',[
     'uses'    =>'App\Http\Controllers\categoryController@deleteCategory',
     'as'      =>'delete/category'
-]); 
- 
+]);
+
 
 
 
@@ -103,7 +103,7 @@ Route::get('category/delete/{id}',[
 
 
 //SuperAdmin Router
-Route::group(['middleware'=>'superAdminMiddleware'],function(){ 
+Route::group(['middleware'=>'superAdminMiddleware'],function(){
 Route::get('superAdmin/allUser',[
     'uses'   =>'App\Http\Controllers\myUserController@allUser',
     'as'     =>'allUser'
@@ -144,16 +144,14 @@ Route::get('/',[
     'uses'  => 'App\Http\Controllers\HomeController@index',
     'as'    =>'/'
 ]);
-Route::get('/demo',[
+Route::get('demo-alert',[
     'uses'  => 'App\Http\Controllers\HomeController@demo',
-    'as'    =>'demo'
+    'as'    =>'demo-alert'
 ]);
- Route::get('post-an-ad',[
-    'uses'  => 'App\Http\Controllers\HomeController@index',
-    'as'    =>'visitor-post-an-ad'
-]); 
 Route::resource('ads',App\Http\Controllers\AdsController::class);
- 
+
+
+
 
 
 

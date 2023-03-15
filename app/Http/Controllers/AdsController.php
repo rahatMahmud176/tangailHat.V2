@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\District;
 use Illuminate\Http\Request;
 
 class AdsController extends Controller
@@ -13,7 +14,9 @@ class AdsController extends Controller
      */
     public function index()
     {
-        return view('front-end.ads.post-an-ad');
+        return view('front-end.ads.post-an-ad',[
+            'districts'     => District::where('status',1)->get('id','name'),
+        ]);
     }
 
     /**
@@ -34,7 +37,7 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

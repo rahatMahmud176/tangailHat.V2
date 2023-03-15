@@ -3,47 +3,7 @@
     Post An Ad
 @endsection
 @section('content')
-<section class="search-layout1 bg-body full-width-border-bottom fixed-menu-mt d-none d-sm-block">
-    <div class="container">
-        <form id="cp-search-form">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="form-group search-input-area input-icon-location">
-                        <select id="location" class="select2">
-                            <option class="first" value="0">Select Location</option>
-                            <option value="1">Paypal</option>
-                            <option value="2">Master Card</option>
-                            <option value="3">Visa Card</option>
-                            <option value="4">Scrill</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="form-group search-input-area input-icon-category">
-                        <select id="categories" class="select2">
-                            <option class="first" value="0">Select Categories</option>
-                            <option value="1">Paypal</option>
-                            <option value="2">Master Card</option>
-                            <option value="3">Visa Card</option>
-                            <option value="4">Scrill</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="form-group search-input-area input-icon-keywords">
-                        <input placeholder="Enter Keywords here ..." value="" name="key-word" type="text">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 text-right text-left-mb">
-                    <a href="#" class="cp-search-btn">
-                        <i class="fa fa-search" aria-hidden="true"></i>Search
-                    </a>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
-<section class="s-space-bottom-full bg-accent-shadow-body">
+ <section class="s-space-bottom-full bg-accent-shadow-body">
     <div class="container">
         <div class="breadcrumbs-area">
             <ul>
@@ -60,10 +20,11 @@
                         <h2>Post A Free Add</h2>
                     </div>
                     <div class="input-layout1 gradient-padding post-ad-page">
-                        <form id="post-add-form">
+
+                            {{Form::open(['route'=>'ads.store','id'=>'post-add-form'])}}
                             <div class="border-bottom-2 mb-50 pb-30">
                                 <div class="section-title-left-dark border-bottom d-flex">
-                                    <h3><img src="img/post-add1.png" alt="post-add" class="img-fluid"> Product Information</h3>
+                                    <h3><img src="{{asset('/')}}/front-end/img/post-add1.png" alt="post-add" class="img-fluid"> Product Information</h3>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 col-12">
@@ -72,7 +33,7 @@
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
                                             <div class="custom-select">
-                                                <select id="category-name" class='select2'>
+                                                <select name="category_id" id="category-name" class='select2'>
                                                     <option value="0">Select a Category</option>
                                                     <option value="1">Electronics</option>
                                                     <option value="2">Fashin &amp; Life Style</option>
@@ -96,12 +57,12 @@
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio1" value="option1" name="radioInline1" checked="">
-                                                <label for="inlineRadio1">Indivisual</label>
+                                                <input type="radio" id="inlineRadio1" value="used" name="condition" checked="">
+                                                <label for="inlineRadio1">Used</label>
                                             </div>
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio2" value="option2" name="radioInline1">
-                                                <label for="inlineRadio2"> Business </label>
+                                                <input type="radio" id="inlineRadio2" value="new" name="condition">
+                                                <label for="inlineRadio2"> New </label>
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +73,7 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input type="text" id="add-title" class="form-control" placeholder="First Name">
+                                            <input type="text" name="title" id="add-title" class="form-control" placeholder="First Name">
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +83,7 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <textarea placeholder="What makes your ad unique" class="textarea form-control" name="message" id="description" rows="4" cols="20" data-error="Message field is required" required></textarea>
+                                            <textarea placeholder="What makes your ad unique" class="textarea form-control" name="discription" id="description" rows="4" cols="20" data-error="Message field is required" required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -132,14 +93,14 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input type="text" id="describe-ad2" class="form-control price-box" placeholder="$ Set your Price Here">
+                                            <input type="text" name="price" id="describe-ad2" class="form-control price-box" placeholder="৳ Set your Price Here">
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio3" value="option1" name="radioInline2" checked="">
-                                                <label for="inlineRadio3">Indivisual</label>
+                                                <input type="radio" id="inlineRadio3" value="fixed" name="price_type" checked="">
+                                                <label for="inlineRadio3">fixed</label>
                                             </div>
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio4" value="option2" name="radioInline2">
-                                                <label for="inlineRadio4"> Business </label>
+                                                <input type="radio" id="inlineRadio4" value="negotiable" name="price_type">
+                                                <label for="inlineRadio4"> Negotiable </label>
                                             </div>
                                         </div>
                                     </div>
@@ -152,13 +113,13 @@
                                         <div class="form-group">
                                             <ul class="picture-upload">
                                                 <li>
-                                                    <input type="file" id="img-upload1" class="form-control">
+                                                    <input name="img_one" type="file" id="img-upload1" class="form-control">
                                                 </li>
                                                 <li>
-                                                    <input type="file" id="img-upload2" class="form-control">
+                                                    <input name="img_two" type="file" id="img-upload2" class="form-control">
                                                 </li>
                                                 <li>
-                                                    <input type="file" id="img-upload3" class="form-control">
+                                                    <input name="img_three" type="file" id="img-upload3" class="form-control">
                                                 </li>
                                             </ul>
                                         </div>
@@ -167,7 +128,7 @@
                             </div>
                             <div class="border-bottom-2 mb-50 pb-30">
                                 <div class="section-title-left-dark border-bottom d-flex">
-                                    <h3><img src="img/post-add2.png" alt="post-add" class="img-fluid"> Seller Information</h3>
+                                    <h3><img src="{{asset('/')}}/front-end/img/post-add2.png" alt="post-add" class="img-fluid"> Seller Information</h3>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 col-12">
@@ -175,7 +136,7 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input type="text" id="seller-name" class="form-control" placeholder="Seller Name">
+                                            <input name="name" type="text" id="seller-name" class="form-control" placeholder="Seller Name">
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +146,7 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input type="text" id="seller-mail" class="form-control" placeholder="Enter Your E-mail Address">
+                                            <input name="email" type="text" id="seller-mail" class="form-control" placeholder="Enter Your E-mail Address">
                                         </div>
                                     </div>
                                 </div>
@@ -195,9 +156,9 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input type="text" id="phone" class="form-control" placeholder="Enter your Mobile">
+                                            <input name="phone_number" type="tel" id="phone" class="form-control" placeholder="Enter your Mobile">
                                             <div class="checkbox checkbox-primary checkbox-circle">
-                                                <input id="checkbox1" type="checkbox" checked="">
+                                                <input name="phone_number_status" value="hide_phone_number" id="checkbox1" type="checkbox" checked="">
                                                 <label for="checkbox1">Hide the phone number</label>
                                             </div>
                                         </div>
@@ -205,33 +166,16 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 col-12">
-                                        <label class="control-label" for="location">Location<span> *</span></label>
-                                    </div>
-                                    <div class="col-sm-9 col-12">
-                                        <div class="form-group">
-                                            <input type="text" id="location2" class="form-control" placeholder="Type Your Location">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-12">
-                                        <label class="control-label" for="country">Country<span> *</span></label>
+                                        <label class="control-label" for="country">District<span> *</span></label>
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
                                             <div class="custom-select">
-                                                <select id="country" class='select2'>
-                                                    <option value="0">Select your country</option>
-                                                    <option value="1">Bangladesh</option>
-                                                    <option value="2">Spain</option>
-                                                    <option value="3">Belgium</option>
-                                                    <option value="4">Ecuador</option>
-                                                    <option value="5">Ghana</option>
-                                                    <option value="6">South Africa</option>
-                                                    <option value="7">India</option>
-                                                    <option value="8">Pakistan</option>
-                                                    <option value="9">Thailand</option>
-                                                    <option value="10">Malaysia</option>
+                                                <select name="district_id" id="country" class='select2'>
+                                                    <option disabled selected value="0">Select your District</option>
+                                                    @foreach($districts as $distict)
+                                                        <option value="{{$distict->id}}">{{$distict->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -239,17 +183,38 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 col-12">
-                                        <label class="control-label" for="zip-code">ZIP Code<span> *</span></label>
+                                        <label class="control-label" for="country">Upazilla<span> *</span></label>
                                     </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-12">
+                                    <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input type="text" id="zip-code" class="form-control" placeholder="Enter Your ZIP Code">
+                                            <div class="custom-select">
+                                                <select name="upazilla_id" id="upazilla" class='select2'>
+                                                    <option selected disabled value="0">Select your upazilla</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-3 col-12">
+                                        <label class="control-label" for="country">Union<span> *</span></label>
+                                    </div>
+                                    <div class="col-sm-9 col-12">
+                                        <div class="form-group">
+                                            <div class="custom-select">
+                                                <select name="union_id" id="union" class='select2'>
+                                                    <option selected disabled value="0">Select your union</option>
+                                                    <option value="10">Malaysia</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+
                             <div class="section-title-left-dark border-bottom d-flex">
-                                <h3><img src="img/post-add3.png" alt="post-add" class="img-fluid"> Make Your Ad Premium</h3>
+                                <h3><img src="{{asset('/')}}/front-end/img/post-add3.png" alt="post-add" class="img-fluid"> Make Your Ad Premium</h3>
                             </div>
                             <div class="pl-50 pl-none--xs">
                                 <p>Premium ads help sellers promote their product or service by getting their ads more visibility with more buyers and sell what they want faster. </p>
@@ -257,73 +222,53 @@
                                     <li>
                                         <div class="form-group">
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio5" value="option1" name="radioInline3" checked="">
-                                                <label for="inlineRadio5">Regular List</label>
-                                                <span>$00.00</span>
+                                                <input type="radio" id="inlineRadio5" value="regular" name="ad_type" checked="">
+                                                <label for="inlineRadio5">Regular Ad</label>
+                                                <span>1 Coin</span>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="form-group">
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio6" value="option1" name="radioInline3">
+                                                <input type="radio" id="inlineRadio6" value="urgent" name="ad_type">
                                                 <label for="inlineRadio6">Urgent Ad</label>
-                                                <span>$10.00</span>
+                                                <span>5 Coins</span>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="form-group">
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio7" value="option1" name="radioInline3">
+                                                <input type="radio" id="inlineRadio7" value="top_page" name="ad_type">
                                                 <label for="inlineRadio7">Top of the Page Ad</label>
-                                                <span>$10.00</span>
+                                                <span>10 Coins</span>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="form-group">
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio8" value="option1" name="radioInline3">
+                                                <input type="radio" id="inlineRadio8" value="top_argent" name="ad_type">
                                                 <label for="inlineRadio8">Top of the Page Ad + Urgent Ad</label>
-                                                <span>$15.00</span>
+                                                <span>15 Coins</span>
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
-                                <ul class="select-payment-method mt-20">
-                                    <li>
-                                        <div class="form-group">
-                                            <div class="custom-select">
-                                                <select id="card" class='select2'>
-                                                    <option value="0">Select Payment Method</option>
-                                                    <option value="1">Paypal</option>
-                                                    <option value="2">Master Card</option>
-                                                    <option value="3">Visa Card</option>
-                                                    <option value="4">Scrill</option>
-                                                </select>
-                                            </div>
-                                            <div class="checkbox checkbox-primary checkbox-circle">
-                                                <input id="checkbox3" type="checkbox" checked="">
-                                                <label for="checkbox3">Remember above contact information.</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h3>Total Payable: <span>$10</span></h3>
-                                    </li>
-                                </ul>
+
                                 <div class="form-group mt-20">
+
                                     <button type="submit" class="cp-default-btn-sm">Submit Now!</button>
                                 </div>
                             </div>
-                        </form>
+                        {{Form::close()}}
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="sidebar-item-box">
-                    <img src="img/banner/sidebar-banner1.jpg" alt="banner" class="img-fluid m-auto">
+                    <img src="{{asset('/')}}/front-end/img/banner/sidebar-banner1.jpg" alt="banner" class="img-fluid m-auto">
                 </div>
                 <div class="sidebar-item-box">
                     <div class="gradient-wrapper">

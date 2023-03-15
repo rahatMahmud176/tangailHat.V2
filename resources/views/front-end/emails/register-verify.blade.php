@@ -103,7 +103,7 @@
 
 <body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
     <!-- HIDDEN PREHEADER TEXT -->
-    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> আপনার একাউন্টটি এক্টিভ করুন। বৃহত্তম জিলা-হাট মার্কেটপ্লেসের পক্ষ থেকে আপনাকে স্বাগতম... 
+    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> আপনার একাউন্টটি এক্টিভ করুন। বৃহত্তম জিলা-হাট মার্কেটপ্লেসের পক্ষ থেকে আপনাকে স্বাগতম...
     </div>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
@@ -132,7 +132,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">সম্মানিত গ্রহক, দেশের বৃহত্তম মার্কেটপ্লেস জিলা-হাটের পক্ষ থেকে আপনাকে সুস্বাগতম। আপনার একাউন্টটি সফলভাবে তৈরি হয়েছে। নিচের Active বাটনে ক্লিক করে আপনার একাউন্টটি এক্টিভ করে নিন।</p>
+                            <p style="margin: 0;">সম্মানিত {{$name}}, দেশের বৃহত্তম মার্কেটপ্লেস জিলা-হাটের পক্ষ থেকে আপনাকে সুস্বাগতম। আপনার একাউন্টটি সফলভাবে তৈরি হয়েছে। নিচের Active বাটনে ক্লিক করে আপনার একাউন্টটি এক্টিভ করে নিন।</p>
                         </td>
                     </tr>
                     <tr>
@@ -142,7 +142,7 @@
                                     <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="green"><a href="#" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #3bff65; display: inline-block;">Active</a></td>
+                                                <td align="center" style="border-radius: 3px;" bgcolor="green"><a href="http://localhost/tangailHat.V2/public/email-verify/{{ $token }}" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #3bff65; display: inline-block;">Active</a></td>
                                             </tr>
                                         </table>
                                     </td>

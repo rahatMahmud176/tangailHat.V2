@@ -19,7 +19,7 @@ class Customer extends Model
         'upozilla_id',
         'union_id',
         'password',
-        
+
     ];
 
 
@@ -41,7 +41,11 @@ public static function new($request)
     self::$customer->token             = self::$token;
     self::$customer->save();
 
-    $data = self::$customer->toArray();
+    $data =  [
+        'name'  => self::$customer->name,
+        'email' => self::$customer->email,
+        'token' => self::$token
+    ];
 
     Mail::send('front-end.emails.register-verify', $data, function($message) use($data){
         $message->to($data['email']);

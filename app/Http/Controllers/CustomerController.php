@@ -16,11 +16,11 @@ class CustomerController extends Controller
 
 public $customer;
 public $id;
-public $ids; 
-public $upozillas; 
-public $unions; 
-public $exist_email; 
-public $newEmail; 
+public $ids;
+public $upozillas;
+public $unions;
+public $exist_email;
+public $newEmail;
 
 
 public function registerPage()
@@ -31,7 +31,7 @@ public function registerPage()
 }
 public function upozillasForDistrictAjax()
 {
-     $this->id = $_GET['id']; 
+     $this->id = $_GET['id'];
     //  $this->upozillas = Upozilla::where([['status',1],['district_id',$this->id]])->get(['id','name']);
     //  return response()->json($this->upozillas);
 
@@ -42,7 +42,7 @@ public function upozillasForDistrictAjax()
 }
 public function unionForUpozillaAjax()
 {
-    $this->id = $_GET['id']; 
+    $this->id = $_GET['id'];
     // return response()->json($this->id);
     $this->unions = Union::where([['status',1],['upozilla_id',$this->id]])->get(['id','name']);
     return response()->view('front-end.ajax-result.unions',[
@@ -68,14 +68,14 @@ public function newCustomer(Request $request)
 {
     $this->exist_email = EmailSubscribe::where('email',$request->email)->first();
     if ($this->exist_email) {
-         
+
     }else{
         EmailSubscribe::new($request->email);
-    } 
-    $this->infoValidation($request); 
-    Customer::new($request); 
+    }
+    $this->infoValidation($request);
+    Customer::new($request);
     Alert::toast('Check you Email, We send a Confirmation Mail','success');
-    return redirect()->back();     
+    return redirect()->back();
 }
 public function emailVerify($token)
 {
@@ -86,20 +86,20 @@ public function emailVerify($token)
     Session::put('customerName',$this->customer->name);
 
      Alert::toast('Email Verify Success!','success');
-     return redirect('post-an-ad');
+     return redirect('ads');
 }
 
 public function existEmailCheck()
 {
     $this->newEmail = $_GET['email'];
-    // return response()->json($this->newEmail); 
+    // return response()->json($this->newEmail);
     $this->exist_email = Customer::where('email',$this->newEmail)->first();
     if ($this->exist_email) {
         return response()->json('unavailable');
     } else {
          return response()->json('available');
     }
-    
+
 }
 
 
