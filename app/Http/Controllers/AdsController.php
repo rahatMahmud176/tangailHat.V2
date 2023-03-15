@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\District;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class AdsController extends Controller
     public function index()
     {
         return view('front-end.ads.post-an-ad',[
-            'districts'     => District::where('status',1)->get('id','name'),
+            'districts'     => District::where('status',1)->get(['id','name']),
+            'categories'    => Category::where('status',1)->get(['id','name'])
         ]);
     }
 

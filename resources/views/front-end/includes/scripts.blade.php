@@ -90,3 +90,48 @@
             });
         });
     </script>
+
+    <script !src="">
+        $(document).on('change','.ad-page-district', function(){
+
+            var id = $(this).val();
+            // alert (id);
+            $.ajax({
+                type: "GET",
+                url : "{{ url('take-upozilla-for-district') }}",
+                data: {id:id},
+                // dataType: "json",
+                success: function(res){
+                    //  console.log(res);
+                    $('.ad-page-upazilla').empty();
+                    $('.ad-page-upazilla').html(res);
+                }
+
+            });
+        })
+    </script>
+
+
+    <script>
+        $(document).on('change','.ad-page-upazilla', function(){
+
+            var id = $(this).val();
+            // alert (id);
+            $.ajax({
+                type: "GET",
+                url : "{{ url('take-union-for-upozilla') }}",
+                data: {id:id},
+                // dataType: "json",
+                success: function(res){
+                    //  console.log(res);
+                    $('.ad-page-union').empty();
+                    $('.ad-page-union').html(res);
+                }
+            });
+        })
+    </script>
+    <script !src="">
+        $(document).on('click','.s', function () {
+                 $('.demo').append('you have no coin');
+        })
+    </script>

@@ -35,16 +35,9 @@
                                             <div class="custom-select">
                                                 <select name="category_id" id="category-name" class='select2'>
                                                     <option value="0">Select a Category</option>
-                                                    <option value="1">Electronics</option>
-                                                    <option value="2">Fashin &amp; Life Style</option>
-                                                    <option value="3">Car &amp; Vehicles</option>
-                                                    <option value="3">Hobby, Sport &amp; Kids</option>
-                                                    <option value="3">Pets &amp; Animals</option>
-                                                    <option value="3">Overseas Jobs</option>
-                                                    <option value="3">Property</option>
-                                                    <option value="3">Education</option>
-                                                    <option value="3">Home &amp; Garden</option>
-                                                    <option value="3">Business &amp; Industry</option>
+                                                    @foreach($categories as $cat)
+                                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -171,7 +164,7 @@
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
                                             <div class="custom-select">
-                                                <select name="district_id" id="country" class='select2'>
+                                                <select name="district_id" id="country" class='select2 ad-page-district'>
                                                     <option disabled selected value="0">Select your District</option>
                                                     @foreach($districts as $distict)
                                                         <option value="{{$distict->id}}">{{$distict->name}}</option>
@@ -188,7 +181,7 @@
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
                                             <div class="custom-select">
-                                                <select name="upazilla_id" id="upazilla" class='select2'>
+                                                <select name="upazilla_id" id="upazilla" class='select2 ad-page-upazilla'>
                                                     <option selected disabled value="0">Select your upazilla</option>
                                                 </select>
                                             </div>
@@ -202,9 +195,8 @@
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
                                             <div class="custom-select">
-                                                <select name="union_id" id="union" class='select2'>
+                                                <select name="union_id" id="union" class='select2 ad-page-union'>
                                                     <option selected disabled value="0">Select your union</option>
-                                                    <option value="10">Malaysia</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -231,8 +223,10 @@
                                     <li>
                                         <div class="form-group">
                                             <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio6" value="urgent" name="ad_type">
+
+                                                <input class="s" type="radio" id="inlineRadio6" value="urgent" name="ad_type">
                                                 <label for="inlineRadio6">Urgent Ad</label>
+                                                <small class="text-danger demo"></small>
                                                 <span>5 Coins</span>
                                             </div>
                                         </div>

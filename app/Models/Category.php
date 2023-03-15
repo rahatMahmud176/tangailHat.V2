@@ -19,8 +19,8 @@ public static function categorySave($request)
     $image->move($direcoty,$imageName);
 
      $item = new Category();
-     $item->categoryName       = $request->categoryName;
-     $item->categoryIcon       = $direcoty.$imageName;
+     $item->name       = $request->categoryName;
+     $item->img       = $direcoty.$imageName; //todo
      $item->save();
 }
 
