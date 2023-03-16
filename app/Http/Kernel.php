@@ -66,6 +66,8 @@ class Kernel extends HttpKernel
         'loginCheckMiddleware'=>\App\Http\Middleware\LoginCheckMiddleware::class,
         'logOutMiddleware'=>\App\Http\Middleware\logOutMiddleware::class,
         'superAdminMiddleware'=>\App\Http\Middleware\superAdminMiddleware::class,
+        'customerLoginMiddleware'=> \App\Http\Middleware\CustomerLoginMiddleware::class,
+        'customerLogoutMiddleware'=> \App\Http\Middleware\CustomerLogoutMiddleware::class,
         
     ];
 }

@@ -81,12 +81,9 @@ public function emailVerify($token)
 {
      $this->customer = Customer::where('token',$token)->first();
      $this->customer->email_varify_status = 1;
-     $this->customer->save();
-    Session::put('customerId',$this->customer->id);
-    Session::put('customerName',$this->customer->name);
-
+     $this->customer->save(); 
      Alert::toast('Email Verify Success!','success');
-     return redirect('ads');
+     return redirect('/');//todo  login path
 }
 
 public function existEmailCheck()
@@ -102,8 +99,38 @@ public function existEmailCheck()
 
 }
 
-
-
+public function loginSubmit(Request $request)
+{
+  
+     $this->exist_email = Customer::where('email',$request->email)->first();
+     if ($this->exist_email) {
+        if ($this->exist_email->email_varify_status==1) {
+            if (password_verify($request->password, $this->exist_email->password)) {
+                Session::put('customerId',$this->exist_email->id);
+                Session::put('customerName',$this->exist_email->name);
+                Alert::toast('Login success!','success');
+                return redirect('ads');
+            } else {
+                Alert::error('Invalid password');
+                return redirect()->back(); 
+            }
+        } else {
+             Alert::info('Not-Activated','Check your mail for activation');
+             return redirect()->back();
+        } 
+     } else {
+         Alert::error('your email is invalid');
+         return redirect()->back();
+     }
+     
+}
+public function logout()
+{
+    Session::forget('customerId');
+    Session::forget('customerName');
+    Alert::toast('Logout success','error');
+    return redirect('/');
+}
 
 
 

@@ -12,6 +12,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-4">
                 <div class="top-bar-right">
                     <ul>
+                        @if (!Session::get('customerId'))
                         <li>
                             <a href="{{ route('customer-register') }}"   class="login-btn">
                                 <i class="fa fa-lock" aria-hidden="true"></i>Register
@@ -22,6 +23,14 @@
                                 <i class="fa fa-lock" aria-hidden="true"></i>Login
                             </button>
                         </li>
+                        @else 
+                            <li>
+                                <button type="button" class="login-btn">
+                                   <a href="{{ route('customer-logout') }}" class="text-light"> <i class="fa fa-lock" aria-hidden="true"></i>Logout</a>
+                                </button>
+                            </li>
+                        @endif
+                        
                         <li class="hidden-mb">
                             <a class="login-btn" href="#" id="login-button">
                                 <i class="fa fa-comments-o" aria-hidden="true"></i>Live Chat

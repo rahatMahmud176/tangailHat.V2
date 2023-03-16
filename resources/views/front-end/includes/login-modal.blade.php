@@ -7,11 +7,11 @@
             </div>
             <div class="modal-body">
                 <div class="login-form">
-                    <form>
-                        <label>Username or email address *</label>
-                        <input type="text" placeholder="Name or E-mail" />
+                    {{ Form::open(['route'=>'customer-login','method'=>'POST']) }}
+                        <label>Email address *</label>
+                        <input name="email" type="text" placeholder="E-mail" />
                         <label>Password *</label>
-                        <input type="password" placeholder="Password" />
+                        <input name="password" type="password" placeholder="Password" />
                         <div class="checkbox checkbox-primary">
                             <input id="checkbox1" type="checkbox">
                             <label for="checkbox1">Remember Me</label>  
@@ -19,7 +19,7 @@
                         <button class="default-big-btn" type="submit" value="Login">Login</button>
                         <button class="default-big-btn form-cancel" type="submit" value="">Cancel</button>
                         <label class="lost-password"><a href="#">Lost your password?</a></label>   
-                    </form>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>

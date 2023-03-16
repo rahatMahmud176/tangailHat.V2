@@ -77,6 +77,7 @@ Route::get('union/delete/{id}',[
     'uses'    =>'App\Http\Controllers\unionController@unionDelete',
     'as'      =>'unionDelete'
 ]);
+
 Route::post('category/categorySave',[
     'uses'    =>'App\Http\Controllers\categoryController@categorySave',
     'as'      =>'categorySave'
@@ -148,7 +149,6 @@ Route::get('demo-alert',[
     'uses'  => 'App\Http\Controllers\HomeController@demo',
     'as'    =>'demo-alert'
 ]);
-Route::resource('ads',App\Http\Controllers\AdsController::class);
 
 
 
@@ -157,27 +157,44 @@ Route::resource('ads',App\Http\Controllers\AdsController::class);
 
 
 
-Route::get('register',[
-    'uses'  => 'App\Http\Controllers\CustomerController@registerPage',
-    'as'    =>'customer-register'
-]);
-Route::get('take-upozilla-for-district',[
-    'uses'  => 'App\Http\Controllers\CustomerController@upozillasForDistrictAjax',
-    'as'    =>'take-upozilla-for-district'
-]);
-Route::get('take-union-for-upozilla',[
-    'uses'  => 'App\Http\Controllers\CustomerController@unionForUpozillaAjax',
-    'as'    =>'take-union-for-upozilla'
-]);
-Route::get('exist-email-check',[
-    'uses'  => 'App\Http\Controllers\CustomerController@existEmailCheck',
-    'as'    =>'exist-email-check'
-]);
-Route::post('register-customer',[
-    'uses'  => 'App\Http\Controllers\CustomerController@newCustomer',
-    'as'    =>'submit-register'
-]);
-Route::get('email-verify/{token}',[
-    'uses'  => 'App\Http\Controllers\CustomerController@emailVerify',
-    'as'    =>'email-verify'
-]);
+
+
+// --------------------Customer login middleware--------------
+Route::group(['middleware'=>'customerLoginMiddleware'],function(){
+    Route::resource('ads',App\Http\Controllers\AdsController::class);
+    Route::get('customer-logout',[
+        'uses'  => 'App\Http\Controllers\CustomerController@logout',
+        'as'    => 'customer-logout'
+    ]);
+});
+// --------------------Customer logout middleware--------------
+Route::group(['middleware'=>'customerLogoutMiddleware'],function(){ 
+    Route::get('register',[
+        'uses'  => 'App\Http\Controllers\CustomerController@registerPage',
+        'as'    =>'customer-register'
+    ]);
+    Route::get('take-upozilla-for-district',[
+        'uses'  => 'App\Http\Controllers\CustomerController@upozillasForDistrictAjax',
+        'as'    =>'take-upozilla-for-district'
+    ]);
+    Route::get('take-union-for-upozilla',[
+        'uses'  => 'App\Http\Controllers\CustomerController@unionForUpozillaAjax',
+        'as'    =>'take-union-for-upozilla'
+    ]);
+    Route::get('exist-email-check',[
+        'uses'  => 'App\Http\Controllers\CustomerController@existEmailCheck',
+        'as'    =>'exist-email-check'
+    ]);
+    Route::post('register-customer',[
+        'uses'  => 'App\Http\Controllers\CustomerController@newCustomer',
+        'as'    =>'submit-register'
+    ]);
+    Route::get('email-verify/{token}',[
+        'uses'  => 'App\Http\Controllers\CustomerController@emailVerify',
+        'as'    =>'email-verify'
+    ]); 
+    Route::post('customer-login',[
+        'uses'  => 'App\Http\Controllers\CustomerController@loginSubmit',
+        'as'    => 'customer-login'
+    ]); 
+});

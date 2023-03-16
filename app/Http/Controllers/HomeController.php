@@ -13,7 +13,7 @@ public function index()
      return view('front-end.home.home');
 }
 public function demo(){
-    Alert::toast('Your Post as been submited!','success');
+    Alert::toast('Your Post as been submitted!','success');
     return redirect()->back();
 }
 

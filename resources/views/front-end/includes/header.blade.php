@@ -76,7 +76,11 @@
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-3 text-right">
-                        <a href="{{ route('ads.index') }}" class="cp-default-btn">Post Your Ad</a>
+                       @if (Session::get('customerId'))
+                       <a href="{{ route('ads.index') }}" class="cp-default-btn">Post Your Ad</a>
+                       @else
+                         <a href=" " class="cp-default-btn post-ad-btn">Post Your Ad</a>
+                       @endif
                     </div>
                 </div>
             </div>

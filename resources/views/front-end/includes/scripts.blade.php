@@ -130,8 +130,18 @@
             });
         })
     </script>
-    <script !src="">
+
+
+<script>
+    $('.post-ad-btn').on('click',function(){
+        event.preventDefault();
+        $("#myModal").modal("toggle");
+    })
+</script>
+
+    <script>
         $(document).on('click','.s', function () {
                  $('.demo').append('you have no coin');
         })
     </script>
+s
