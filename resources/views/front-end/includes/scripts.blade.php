@@ -129,8 +129,7 @@
                 }
             });
         })
-    </script>
-
+    </script> 
 
 <script>
     $('.post-ad-btn').on('click',function(){
@@ -139,9 +138,23 @@
     })
 </script>
 
+<script>
+    $('#category-name').on('change',function(){
+        var cat = $(this).val();
+         $.ajax({
+            type: "GET",
+            url: "{{ url('get-product-info-for-cat') }}",
+            data: {cat:cat},
+            success: function(res){
+                $('.product-info').empty();
+                $('.product-info').html(res); 
+            }
+         });
+    })
+</script>
+
     <script>
         $(document).on('click','.s', function () {
                  $('.demo').append('you have no coin');
         })
     </script>
-s

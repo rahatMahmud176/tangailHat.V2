@@ -161,26 +161,22 @@ Route::get('demo-alert',[
 
 // --------------------Customer login middleware--------------
 Route::group(['middleware'=>'customerLoginMiddleware'],function(){
-    Route::resource('ads',App\Http\Controllers\AdsController::class);
+    Route::resource('ads',App\Http\Controllers\AdsController::class); 
+    Route::get('get-product-info-for-cat',[
+        'uses'  => 'App\Http\Controllers\AdsController@productInfoForCat',
+        'as'    => 'get-product-info-for-cat'
+    ]);
     Route::get('customer-logout',[
         'uses'  => 'App\Http\Controllers\CustomerController@logout',
         'as'    => 'customer-logout'
     ]);
-});
+}); 
 // --------------------Customer logout middleware--------------
 Route::group(['middleware'=>'customerLogoutMiddleware'],function(){ 
     Route::get('register',[
         'uses'  => 'App\Http\Controllers\CustomerController@registerPage',
         'as'    =>'customer-register'
-    ]);
-    Route::get('take-upozilla-for-district',[
-        'uses'  => 'App\Http\Controllers\CustomerController@upozillasForDistrictAjax',
-        'as'    =>'take-upozilla-for-district'
-    ]);
-    Route::get('take-union-for-upozilla',[
-        'uses'  => 'App\Http\Controllers\CustomerController@unionForUpozillaAjax',
-        'as'    =>'take-union-for-upozilla'
-    ]);
+    ]); 
     Route::get('exist-email-check',[
         'uses'  => 'App\Http\Controllers\CustomerController@existEmailCheck',
         'as'    =>'exist-email-check'
@@ -198,3 +194,14 @@ Route::group(['middleware'=>'customerLogoutMiddleware'],function(){
         'as'    => 'customer-login'
     ]); 
 });
+
+
+// ----------------------Free Route -------------------------
+Route::get('take-upozilla-for-district',[
+    'uses'  => 'App\Http\Controllers\CustomerController@upozillasForDistrictAjax',
+    'as'    =>'take-upozilla-for-district'
+]);
+Route::get('take-union-for-upozilla',[
+    'uses'  => 'App\Http\Controllers\CustomerController@unionForUpozillaAjax',
+    'as'    =>'take-union-for-upozilla'
+]);

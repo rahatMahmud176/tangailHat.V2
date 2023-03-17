@@ -8,12 +8,20 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class categoryController extends Controller
 { 
+
+
+public $category;
+
+
+
+
+
 public function categorySave(Request $request)
 {
     
      $this->validate($request,[
-         'categoryIcon'     =>'required',
-         'categoryName'     =>'required | max:40 | unique:App\Models\Category,categoryName',
+         'img'     =>'required',
+         'name'     =>'required | max:40 | unique:categories,name',
      ]);
      Category::categorySave($request);
      Alert::success('Success','Category Add Successfully');
@@ -34,9 +42,10 @@ public function deleteCategoryAlert($id)
 }
 public function deleteCategory($id)
 {
-    $category   = Category::find($id);
-    $category->delete();
-    Alert::error('Deleted!','The category is Delete Successfull');
+    $this->category   = Category::find($id);
+    unlink($this->category->img);
+    $this->category->delete();
+    Alert::error('Deleted!','The category is Delete Successful');
     return redirect('category/manageCategory');  
 }
 

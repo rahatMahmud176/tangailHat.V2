@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\District;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdsController extends Controller
 {
+    public $cat;
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +20,17 @@ class AdsController extends Controller
     {
         return view('front-end.ads.post-an-ad',[
             'districts'     => District::where('status',1)->get(['id','name']),
-            'categories'    => Category::where('status',1)->get(['id','name'])
+            'categories'    => Category::where('status',1)->get(['id','name']),
+            'customer'      => Customer::find(Session::get('customerId')),
         ]);
+    }
+    public function productInfoForCat()
+    {
+         $this->cat = $_GET['cat'];
+         if ($this->cat=='4') {
+            return response()->view('front-end.ajax-result.product-info-mobile');
+         }
+        
     }
 
     /**

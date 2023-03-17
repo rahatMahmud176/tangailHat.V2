@@ -13,14 +13,12 @@ class Category extends Model
 
 public static function categorySave($request)
 {
-    $image      = $request->file('categoryIcon');
-    $imageName  = $image->getClientOriginalName();
-    $direcoty   = 'categoryIcons/';
-    $image->move($direcoty,$imageName);
+ 
 
      $item = new Category();
-     $item->name       = $request->categoryName;
-     $item->img       = $direcoty.$imageName; //todo
+     $item->name       = $request->name;
+     $item->img       =  imageUpload($request->file('img'),$request->name,100,100,'front-end/cat-img/');
+
      $item->save();
 }
 

@@ -24,8 +24,8 @@
                 @foreach ($categories as $item)
                 <tr>
                     <th scope="row">{{ $i++ }}</th>
-                    <td>{{ $item->categoryName }}</td>
-                    <td><img src="{{ asset($item->categoryIcon) }}" alt="" width="30px" ></td>
+                    <td>{{ $item->name }}</td>
+                    <td><img src="{{ asset($item->img) }}" alt="" width="30px" ></td>
                     <td> 
                         
                         <a href="{{ route('deleteCategoryAlert',['id'=>$item->id]) }}"   ><i class="align-middle text-danger" data-feather="trash-2"></i></a> 

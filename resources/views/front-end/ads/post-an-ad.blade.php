@@ -36,89 +36,21 @@
                                                 <select name="category_id" id="category-name" class='select2'>
                                                     <option value="0">Select a Category</option>
                                                     @foreach($categories as $cat)
-                                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-12">
-                                        <label class="control-label possition-top" for="first-name">Add Type <span> *</span></label>
-                                    </div>
-                                    <div class="col-sm-9 col-12">
-                                        <div class="form-group">
-                                            <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio1" value="used" name="condition" checked="">
-                                                <label for="inlineRadio1">Used</label>
-                                            </div>
-                                            <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio2" value="new" name="condition">
-                                                <label for="inlineRadio2"> New </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-12">
-                                        <label class="control-label" for="add-title">Ad Title <span> *</span></label>
-                                    </div>
-                                    <div class="col-sm-9 col-12">
-                                        <div class="form-group">
-                                            <input type="text" name="title" id="add-title" class="form-control" placeholder="First Name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-12">
-                                        <label class="control-label">Description<span> *</span></label>
-                                    </div>
-                                    <div class="col-sm-9 col-12">
-                                        <div class="form-group">
-                                            <textarea placeholder="What makes your ad unique" class="textarea form-control" name="discription" id="description" rows="4" cols="20" data-error="Message field is required" required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-12">
-                                        <label class="control-label" for="first-name">Set Price <span> *</span></label>
-                                    </div>
-                                    <div class="col-sm-9 col-12">
-                                        <div class="form-group">
-                                            <input type="text" name="price" id="describe-ad2" class="form-control price-box" placeholder="৳ Set your Price Here">
-                                            <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio3" value="fixed" name="price_type" checked="">
-                                                <label for="inlineRadio3">fixed</label>
-                                            </div>
-                                            <div class="radio radio-primary radio-inline">
-                                                <input type="radio" id="inlineRadio4" value="negotiable" name="price_type">
-                                                <label for="inlineRadio4"> Negotiable </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-12">
-                                        <label class="control-label" for="add-title">Upload Picture<span> *</span></label>
-                                    </div>
-                                    <div class="col-sm-9 col-12">
-                                        <div class="form-group">
-                                            <ul class="picture-upload">
-                                                <li>
-                                                    <input name="img_one" type="file" id="img-upload1" class="form-control">
-                                                </li>
-                                                <li>
-                                                    <input name="img_two" type="file" id="img-upload2" class="form-control">
-                                                </li>
-                                                <li>
-                                                    <input name="img_three" type="file" id="img-upload3" class="form-control">
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+
+                            <div class="product-info">
+                                
                             </div>
+
+                            </div>
+
+
                             <div class="border-bottom-2 mb-50 pb-30">
                                 <div class="section-title-left-dark border-bottom d-flex">
                                     <h3><img src="{{asset('/')}}/front-end/img/post-add2.png" alt="post-add" class="img-fluid"> Seller Information</h3>
@@ -129,7 +61,7 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input name="name" type="text" id="seller-name" class="form-control" placeholder="Seller Name">
+                                            <input name="name" type="text" id="seller-name" class="form-control" value="{{ $customer->name }}">
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +71,7 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input name="email" type="text" id="seller-mail" class="form-control" placeholder="Enter Your E-mail Address">
+                                            <input name="email" type="text" id="seller-mail" class="form-control" value="{{ $customer->email }}">
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +81,7 @@
                                     </div>
                                     <div class="col-sm-9 col-12">
                                         <div class="form-group">
-                                            <input name="phone_number" type="tel" id="phone" class="form-control" placeholder="Enter your Mobile">
+                                            <input name="phone_number" type="tel" id="phone" class="form-control" value="{{ $customer->phn_no }}">
                                             <div class="checkbox checkbox-primary checkbox-circle">
                                                 <input name="phone_number_status" value="hide_phone_number" id="checkbox1" type="checkbox" checked="">
                                                 <label for="checkbox1">Hide the phone number</label>
@@ -166,8 +98,8 @@
                                             <div class="custom-select">
                                                 <select name="district_id" id="country" class='select2 ad-page-district'>
                                                     <option disabled selected value="0">Select your District</option>
-                                                    @foreach($districts as $distict)
-                                                        <option value="{{$distict->id}}">{{$distict->name}}</option>
+                                                    @foreach($districts as $district)
+                                                        <option {{ $customer->district_id==$district->id?'selected':'' }} value="{{$district->id}}">{{$district->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
