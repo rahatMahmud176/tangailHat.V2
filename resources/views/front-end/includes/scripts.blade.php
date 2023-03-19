@@ -148,6 +148,7 @@
             success: function(res){
                 $('.product-info').empty();
                 $('.product-info').html(res); 
+                $('.my-select2').select2();  
             }
          });
     })

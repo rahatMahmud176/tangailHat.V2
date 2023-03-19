@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\District;
+use App\Models\Union;
+use App\Models\Upozilla;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -22,13 +24,17 @@ class AdsController extends Controller
             'districts'     => District::where('status',1)->get(['id','name']),
             'categories'    => Category::where('status',1)->get(['id','name']),
             'customer'      => Customer::find(Session::get('customerId')),
+            'upazillas'     => Upozilla::where('status',1)->get(['id','name']),
+            'unions'        => Union::where('status',1)->get(['id','name']),
         ]);
     }
     public function productInfoForCat()
     {
          $this->cat = $_GET['cat'];
          if ($this->cat=='4') {
-            return response()->view('front-end.ajax-result.product-info-mobile');
+            return response()->view('front-end.ajax-result.product-info-mobile',[
+                'districts' => District::where('status',1)->get(['id','name']),
+            ]);
          }
         
     }

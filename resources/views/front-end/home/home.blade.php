@@ -112,7 +112,7 @@
                                                 </div>
                                             </li>
                                             <li class="active"><a href="#" data-type="category-grid-layout3" class="product-view-trigger"><i class="fa fa-th-large"></i></a></li>
-                                            <li><a href="#" data-type="category-list-layout3" class="product-view-trigger"><i class="fa fa-list"></i></a></li>
+                                            <li ><a href="#" data-type="category-list-layout3" class="product-view-trigger"><i class="fa fa-list"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
